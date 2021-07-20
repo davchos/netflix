@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import "./App.css";
+import sections from "./images.json";
+import Section from "./Section";
 
-function App() {
+import logo from "./netflix_official_logo_icon_168085.png";
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img className="App-img" src={logo} alt="" />
+
+      <div className="sections-div">
+        <ul>
+          {sections.map((section, index) => {
+            return (
+              <li key={index}>
+                <Section category={section.category} images={section.images} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
